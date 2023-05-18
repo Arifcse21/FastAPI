@@ -17,8 +17,8 @@ class Database:
             echo=False
         )
 
-        # ssson = sessionmaker(bind=engine)
-        # session = ssson()
+        ssson = sessionmaker(bind=engine)
+        session = ssson()
 
-        return engine
+        return engine, session
 
