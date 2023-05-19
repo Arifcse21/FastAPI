@@ -1,1 +1,1 @@
-from .new_user import NewUser
+from .user_schema import UserSchema

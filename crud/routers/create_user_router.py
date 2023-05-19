@@ -1,18 +1,17 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, status
 from ..db_connection import Database
-from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from crud.models import Base, User
-from crud.schemas import NewUser
+from crud.schemas import UserSchema
 
 
 db = Database()
 engine, session = db()
 
-new_user_router = APIRouter()
+create_user_router = APIRouter()
 
 
-@new_user_router.post("/add-user/", tags=['users'])
-def create_user(user: NewUser):
+@create_user_router.post("/add-user/", tags=['users'], status_code=status.HTTP_201_CREATED)
+def create_user(user: UserSchema):
     new_user = User(
         fullname=user.fullname,
         email=user.email,
@@ -25,6 +24,7 @@ def create_user(user: NewUser):
 
     response = {
         "status": "successful",
+        "code": status.HTTP_201_CREATED,
         "message": "new user created",
         "data": user
     }

@@ -10,7 +10,7 @@ class Base(DeclarativeBase):
 
 
 class User(Base):
-    __tablename__ = "Users"
+    __tablename__ = "User"
     id: Mapped[int] = mapped_column(primary_key=True)
     fullname: Mapped[str]
     email: Mapped[str] = mapped_column(String(100))
