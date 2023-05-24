@@ -1,7 +1,7 @@
 # FastAPI
 Practice on FastAPI and SqlAlchemy orm
 
-In this simple project, PostgrSQL database is used.
+In this simple project, PostgreSQL database is used.
 I deployed the database on docker.
 you can do so by:
 
@@ -14,6 +14,10 @@ you can do so by:
 
 ### Install required packages
 `pip install -r requirements.txt`
+
+### Don't forget to perform testing with pytest
+
+`pytest -v`
 
 ### Run the api server with uvicorn
 `uvicorn crud.main:app --reload`
